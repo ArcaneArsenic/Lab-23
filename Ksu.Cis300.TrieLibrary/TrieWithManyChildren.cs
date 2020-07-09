@@ -2,6 +2,7 @@
  * Author: Rod Howell
  */
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -95,6 +96,32 @@ namespace Ksu.Cis300.TrieLibrary
                 _children[loc] = _children[loc].Add(s.Substring(1));
             }
             return this;
+        }
+
+        public ITrie GetCompletions(string prefix)
+        {
+            //
+            try
+            {
+                if (prefix == "")
+                {
+                    return this;
+                }
+                else if (prefix[0] == Convert.ToChar(_children))
+                {
+                    return _children.GetCompletions(prefix.Substring(1));
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception) { throw new NotImplementedException(); }
+        }
+
+        public void AddAll(StringBuilder prefix, IList list)
+        {
+            throw new NotImplementedException();
         }
     }
 }

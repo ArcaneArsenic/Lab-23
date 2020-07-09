@@ -2,7 +2,7 @@
  * Author: Rod Howell
  */
 using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,6 +38,11 @@ namespace Ksu.Cis300.TrieLibrary
             }
         }
 
+        public void AddAll(StringBuilder prefix, IList list)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// Determines whether this trie contains the given string.
         /// </summary>
@@ -53,6 +58,11 @@ namespace Ksu.Cis300.TrieLibrary
             {
                 return false;
             }
+        }
+
+        public ITrie GetCompletions(string prefix)
+        {
+            throw new NotImplementedException();
         }
     }
 }
