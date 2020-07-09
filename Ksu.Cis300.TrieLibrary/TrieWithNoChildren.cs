@@ -38,9 +38,10 @@ namespace Ksu.Cis300.TrieLibrary
             }
         }
 
-        public void AddAll(StringBuilder prefix, IList list)
+        public void AddAll(StringBuilder prefix, IList list) 
         {
             throw new NotImplementedException();
+            
         }
 
         /// <summary>
@@ -62,7 +63,22 @@ namespace Ksu.Cis300.TrieLibrary
 
         public ITrie GetCompletions(string prefix)
         {
-            throw new NotImplementedException();
+            try
+            {
+                if (prefix == "")
+                {
+                    return this;
+                }
+                //else if (prefix[0] == Convert.ToChar(_children))
+                //{
+                //    return this;
+                //}
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception) { throw new NotImplementedException(); }
         }
     }
 }

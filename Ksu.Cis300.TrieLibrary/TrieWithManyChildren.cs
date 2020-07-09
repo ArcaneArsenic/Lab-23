@@ -100,7 +100,7 @@ namespace Ksu.Cis300.TrieLibrary
 
         public ITrie GetCompletions(string prefix)
         {
-            //
+            
             try
             {
                 if (prefix == "")
@@ -109,7 +109,7 @@ namespace Ksu.Cis300.TrieLibrary
                 }
                 else if (prefix[0] == Convert.ToChar(_children))
                 {
-                    return _children.GetCompletions(prefix.Substring(1));
+                    return this;
                 }
                 else
                 {
@@ -121,7 +121,20 @@ namespace Ksu.Cis300.TrieLibrary
 
         public void AddAll(StringBuilder prefix, IList list)
         {
-            throw new NotImplementedException();
+            try 
+            {
+                if (_hasEmptyString) {list.Add(prefix.ToString());}
+                while (prefix.Length < 0)
+                {
+                    prefix.Append(_children);
+                    //_children.AddAll(prefix, list);
+                    prefix.Length--;
+                    
+                }
+            }
+
+            catch (Exception) 
+            { throw new NotImplementedException(); }
         }
     }
 }

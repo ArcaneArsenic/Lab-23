@@ -65,6 +65,14 @@ namespace Ksu.Cis300.Prefixes
         /// <param name="e"></param>
         private void uxLookUp_Click(object sender, EventArgs e)
         {
+            uxCompletions.Items.Clear();
+            ITrie completions = _words.GetCompletions(uxWord.Text);
+            if (completions != null)
+            {
+                uxCompletions.BeginUpdate();
+                completions.AddAll(new StringBuilder(uxWord.Text), uxCompletions.Items);
+                uxCompletions.EndUpdate();
+            }
 
         }
     }
